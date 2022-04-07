@@ -13,6 +13,7 @@ const AIR_RESISTANCE: float = 0.02
 #const ShootBlockPath = preload("res://Scenes/ShootBlock.tscn")
 
 export var jump_enabled: bool = true
+export var is_facing_right := true
 
 var _jump_ref: FuncRef = null
 var _use_rocket_pack_ref: FuncRef = null
@@ -33,15 +34,12 @@ var _jump_animation_name := "Jump"
 var _hang_idle_animation_name := "HangIdle"
 var _hang_move_animation_name := "HangMove"
 onready var sprite := $Sprite as Sprite
-#onready var animation_player := $AnimationPlayer as AnimationPlayer
-onready var shoot_block_spawn_position := $ShootSpawnPos as Position2D
 onready var shoot_check_area := $ShootCheckArea as Area2D
 
 #func _ready() -> void:
 #	_jump_ref = _setup_jump()
 #	_use_rocket_pack_ref = funcref(self, "_disabled_rocket_pack")
 #	_use_block_gun_ref = funcref(self, "_disabled_block_gun")
-#	_shoot_spawn_x = shoot_block_spawn_position.position.x
 
 
 func _physics_process(_delta: float) -> void:
@@ -90,15 +88,22 @@ func hang(direction: float) -> void:
 		
 func is_running_max_speed(max_x_speed: int) -> bool:
 	return _velocity.x == max_x_speed or _velocity.x == -max_x_speed
+	
+func get_is_facing_right() -> bool:
+	return is_facing_right
+	
+func set_is_facing_right(value: bool) -> void:
+	is_facing_right = value
 		
 	
 func _handle_input_movement() -> void:	
-	if Input.is_action_just_pressed("ui_right"):
-		shoot_block_spawn_position.position.x = _shoot_spawn_x
-		shoot_check_area.position.x = _shoot_spawn_x
-	if Input.is_action_just_pressed("ui_left"):
-		shoot_block_spawn_position.position.x = -_shoot_spawn_x
-		shoot_check_area.position.x = -_shoot_spawn_x
+	pass
+#	if Input.is_action_just_pressed("ui_right"):
+#		shoot_block_spawn_position.position.x = _shoot_spawn_x
+#		shoot_check_area.position.x = _shoot_spawn_x
+#	if Input.is_action_just_pressed("ui_left"):
+#		shoot_block_spawn_position.position.x = -_shoot_spawn_x
+#		shoot_check_area.position.x = -_shoot_spawn_x
 	
 	
 func _on_RocketPack_rocket_pack_collected() -> void:

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Character/RRExport.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Character/NewCharacter.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Character/CharacterAnimation.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -25,14 +24,6 @@ vframes = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
-
-[node name="ShootSpawnPos" type="Position2D" parent="."]
-position = Vector2( 17, -5 )
-
-[node name="Sprite" type="Sprite" parent="ShootSpawnPos"]
-visible = false
-scale = Vector2( 0.066, 0.066 )
-texture = ExtResource( 3 )
 
 [node name="ShootCheckArea" type="Area2D" parent="."]
 position = Vector2( 16, -11 )
