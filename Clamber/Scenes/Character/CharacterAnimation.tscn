@@ -1,0 +1,38 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Character/CharacterAnimation.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Animations/CharacterRocketJump.tres" type="Animation" id=2]
+[ext_resource path="res://Resources/Animations/CharacterRocketIdle.tres" type="Animation" id=3]
+[ext_resource path="res://Resources/Animations/CharacterIdle.tres" type="Animation" id=4]
+[ext_resource path="res://Resources/Animations/CharacterJump.tres" type="Animation" id=5]
+[ext_resource path="res://Resources/Animations/CharacterHangRocketMove.tres" type="Animation" id=6]
+[ext_resource path="res://Resources/Animations/CharacterRocketRun.tres" type="Animation" id=7]
+[ext_resource path="res://Resources/Animations/CharacterRocketUp.tres" type="Animation" id=8]
+[ext_resource path="res://Resources/Animations/CharacterRun.tres" type="Animation" id=9]
+[ext_resource path="res://Resources/Animations/CharacterHangMove.tres" type="Animation" id=10]
+[ext_resource path="res://Resources/Animations/CharacterHangRocketIdle.tres" type="Animation" id=11]
+[ext_resource path="res://Resources/Animations/CharacterHangIdle.tres" type="Animation" id=12]
+[ext_resource path="res://Resources/CharacterAnimation.tres" type="AnimationNodeBlendTree" id=13]
+
+[node name="CharacterAnimation" type="AnimationPlayer"]
+anims/CharacterHangIdle = ExtResource( 12 )
+anims/CharacterHangMove = ExtResource( 10 )
+anims/CharacterHangRocketIdle = ExtResource( 11 )
+anims/CharacterHangRocketMove = ExtResource( 6 )
+anims/CharacterIdle = ExtResource( 4 )
+anims/CharacterJump = ExtResource( 5 )
+anims/CharacterRocketIdle = ExtResource( 3 )
+anims/CharacterRocketJump = ExtResource( 2 )
+anims/CharacterRocketRun = ExtResource( 7 )
+anims/CharacterRocketUp = ExtResource( 8 )
+anims/CharacterRun = ExtResource( 9 )
+script = ExtResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = ExtResource( 13 )
+anim_player = NodePath("..")
+active = true
+parameters/hanging/current = 0
+parameters/in_air/current = 1
+parameters/movement/current = 0
+parameters/state/current = 0

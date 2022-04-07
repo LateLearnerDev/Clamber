@@ -1,0 +1,2 @@
+class_name HangCollider
+extends Area2D
