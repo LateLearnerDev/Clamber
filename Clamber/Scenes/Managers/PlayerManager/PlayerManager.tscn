@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Areas/HangCheckArea/HangCheckArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Areas/CollectableCheckArea/CollectableCheckArea.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/HUD/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Areas/ShootCheckArea/ShootCheckArea.tscn" type="PackedScene" id=6]
 
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource( 2 )
@@ -22,12 +22,12 @@ scale = Vector2( 1.00298, 0.599998 )
 position = Vector2( 1.00298, -10 )
 scale = Vector2( 0.697047, 1 )
 
+[node name="ShootCheckArea" parent="NewCharacter" instance=ExtResource( 6 )]
+position = Vector2( 16.0478, -11 )
+scale = Vector2( 0.828967, 0.84 )
+
 [node name="ShootSpawnPosition" type="Position2D" parent="NewCharacter"]
 position = Vector2( 16.0478, -11 )
-
-[node name="Sprite" type="Sprite" parent="NewCharacter/ShootSpawnPosition"]
-scale = Vector2( 0.108955, 0.125 )
-texture = ExtResource( 6 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 

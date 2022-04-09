@@ -68,6 +68,16 @@ _global_script_classes=[ {
 "class": "RocketPowerBar",
 "language": "GDScript",
 "path": "res://Scenes/HUD/RocketPowerBar/RocketPowerBar.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "ShootBlock",
+"language": "GDScript",
+"path": "res://Scenes/Collectables/BlockGun/ShootBlock.gd"
+}, {
+"base": "Area2D",
+"class": "ShootCheckArea",
+"language": "GDScript",
+"path": "res://Scenes/Areas/ShootCheckArea/ShootCheckArea.gd"
 } ]
 _global_script_class_icons={
 "BlockGun": "",
@@ -81,7 +91,9 @@ _global_script_class_icons={
 "NewCharacter": "",
 "PlayerManager": "",
 "RocketPack": "",
-"RocketPowerBar": ""
+"RocketPowerBar": "",
+"ShootBlock": "",
+"ShootCheckArea": ""
 }
 
 [application]

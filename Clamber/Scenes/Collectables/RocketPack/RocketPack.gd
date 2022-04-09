@@ -1,7 +1,7 @@
 class_name RocketPack
 extends Collectable
 
-const THRUST_POWER = -100
+const THRUST_POWER = -20
 const COST = 1
 const RECHARGE_RATE = 1
 const MAX_ENERGY = 200
