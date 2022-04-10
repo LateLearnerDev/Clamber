@@ -15,12 +15,13 @@ var _is_hanging := false setget set_is_hanging
 var _shoot_spawn_x: float
 
 onready var player_character := $Character as Character
+onready var camera := $Camera as PlayerCam
 onready var hang_check_area := $Character/HangCheckArea as HangCheckArea
 onready var collectable_check_area := $Character/CollectableCheckArea as CollectableCheckArea
 onready var shoot_check_area := $Character/ShootCheckArea as ShootCheckArea
 onready var character_animation := $Character/CharacterAnimation as CharacterAnimation
 onready var shoot_pos_2d := $Character/ShootSpawnPosition as Position2D
-onready var hud := $HUD as Hud
+onready var hud := $CanvasLayer/HUD as Hud
 
 
 func _ready() -> void:
@@ -32,6 +33,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	camera.move(player_character.position)
 	var x_input := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if x_input > 0:
 		player_character.set_is_facing_right(true)

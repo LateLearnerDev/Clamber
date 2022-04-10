@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/HUD/HUD.gd"
 }, {
+"base": "Camera2D",
+"class": "PlayerCam",
+"language": "GDScript",
+"path": "res://Scenes/Cameras/Camera.gd"
+}, {
 "base": "Node2D",
 "class": "PlayerManager",
 "language": "GDScript",
@@ -83,6 +88,7 @@ _global_script_class_icons={
 "HangCheckArea": "",
 "HangCollider": "",
 "Hud": "",
+"PlayerCam": "",
 "PlayerManager": "",
 "RocketPack": "",
 "RocketPowerBar": "",
@@ -94,6 +100,7 @@ _global_script_class_icons={
 
 config/name="Clamber"
 run/main_scene="res://Levels/TestLevel.tscn"
+boot_splash/bg_color=Color( 0.517647, 0.188235, 0.52549, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -169,5 +176,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_clear_color=Color( 0.431373, 0.627451, 1, 1 )
 environment/default_environment="res://default_env.tres"

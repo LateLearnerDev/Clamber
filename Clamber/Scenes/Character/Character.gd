@@ -36,21 +36,21 @@ func fall(jump_force: float) -> void:
 		_is_jumping = false
 		_velocity.y = jump_force/2
 	
-	
+
 func use_rocket_pack(rocket_pack_boost: int, max_y_speed: int) -> void:
 	_is_jumping = true
 	_velocity.y += rocket_pack_boost
 	_velocity.y = clamp(_velocity.y, max_y_speed, -max_y_speed)
 
-	
+
 func hang(direction: float) -> void:
 	_velocity.y = 0
 	if direction == 0:
 		_velocity.x = 0
 	else:	
 		sprite.flip_h = direction < 0
-		
-		
+
+
 func is_running_max_speed(max_x_speed: int) -> bool:
 	return _velocity.x == max_x_speed or _velocity.x == -max_x_speed
 	
