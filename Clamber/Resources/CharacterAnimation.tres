@@ -1,19 +1,28 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=12 format=2]
-
-[sub_resource type="AnimationNodeAnimation" id=21]
-animation = "CharacterJump"
+[gd_resource type="AnimationNodeBlendTree" load_steps=16 format=2]
 
 [sub_resource type="AnimationNodeAnimation" id=27]
 animation = "CharacterHangIdle"
 
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "CharacterHangRocketIdle"
+
 [sub_resource type="AnimationNodeAnimation" id=29]
 animation = "CharacterHangMove"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "CharacterHangRocketMove"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
 animation = "CharacterIdle"
 
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "CharacterRocketIdle"
+
 [sub_resource type="AnimationNodeAnimation" id=23]
 animation = "CharacterJump"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "CharacterRocketJump"
 
 [sub_resource type="AnimationNodeAnimation" id=31]
 animation = "CharacterRocketUp"
@@ -21,30 +30,41 @@ animation = "CharacterRocketUp"
 [sub_resource type="AnimationNodeAnimation" id=24]
 animation = "CharacterRun"
 
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "CharacterRocketRun"
+
 [sub_resource type="AnimationNodeTransition" id=30]
-input_count = 2
+input_count = 4
 input_0/name = "hang_idle"
 input_0/auto_advance = false
 input_1/name = "hang_move"
 input_1/auto_advance = false
+input_2/name = "hang_idle_rocket"
+input_2/auto_advance = false
+input_3/name = "hang_move_rocket"
+input_3/auto_advance = false
 
 [sub_resource type="AnimationNodeTransition" id=28]
 input_count = 4
-input_0/name = "falling"
+input_0/name = "jumping"
 input_0/auto_advance = false
-input_1/name = "jumping"
+input_1/name = "hanging"
 input_1/auto_advance = false
-input_2/name = "hanging"
+input_2/name = "rocket"
 input_2/auto_advance = false
-input_3/name = "rocket"
+input_3/name = "jumping_rocket"
 input_3/auto_advance = false
 
 [sub_resource type="AnimationNodeTransition" id=26]
-input_count = 2
+input_count = 4
 input_0/name = "idle"
 input_0/auto_advance = false
 input_1/name = "run"
 input_1/auto_advance = false
+input_2/name = "idle_rocket"
+input_2/auto_advance = false
+input_3/name = "run_rocket"
+input_3/auto_advance = false
 
 [sub_resource type="AnimationNodeTransition" id=25]
 input_count = 2
@@ -54,28 +74,36 @@ input_1/name = "air"
 input_1/auto_advance = false
 
 [resource]
-graph_offset = Vector2( -284.876, 118.455 )
-nodes/Falling/node = SubResource( 21 )
-nodes/Falling/position = Vector2( 420, 240 )
+graph_offset = Vector2( -657.282, 543.667 )
 nodes/HangingIdle/node = SubResource( 27 )
-nodes/HangingIdle/position = Vector2( 200, 480 )
+nodes/HangingIdle/position = Vector2( -400, 740 )
+nodes/HangingIdleRocket/node = SubResource( 35 )
+nodes/HangingIdleRocket/position = Vector2( -440, 980 )
 nodes/HangingMove/node = SubResource( 29 )
-nodes/HangingMove/position = Vector2( 220, 600 )
+nodes/HangingMove/position = Vector2( -400, 860 )
+nodes/HangingMoveRocket/node = SubResource( 36 )
+nodes/HangingMoveRocket/position = Vector2( -440, 1100 )
 nodes/Idle/node = SubResource( 19 )
-nodes/Idle/position = Vector2( 120, 40 )
+nodes/Idle/position = Vector2( 120, 0 )
+nodes/IdleRocket/node = SubResource( 33 )
+nodes/IdleRocket/position = Vector2( 120, 240 )
 nodes/Jumping/node = SubResource( 23 )
-nodes/Jumping/position = Vector2( 420, 360 )
+nodes/Jumping/position = Vector2( 120, 500 )
+nodes/RocketJumping/node = SubResource( 34 )
+nodes/RocketJumping/position = Vector2( 120, 620 )
 nodes/RocketUp/node = SubResource( 31 )
-nodes/RocketUp/position = Vector2( 340, 760 )
+nodes/RocketUp/position = Vector2( -180, 1280 )
 nodes/Run/node = SubResource( 24 )
-nodes/Run/position = Vector2( 120, 160 )
+nodes/Run/position = Vector2( 120, 120 )
+nodes/RunRocket/node = SubResource( 32 )
+nodes/RunRocket/position = Vector2( 120, 360 )
 nodes/hanging/node = SubResource( 30 )
-nodes/hanging/position = Vector2( 480, 500 )
+nodes/hanging/position = Vector2( -40, 820 )
 nodes/in_air/node = SubResource( 28 )
-nodes/in_air/position = Vector2( 780, 280 )
+nodes/in_air/position = Vector2( 820, 560 )
 nodes/movement/node = SubResource( 26 )
-nodes/movement/position = Vector2( 420, 60 )
-nodes/output/position = Vector2( 1040, 60 )
+nodes/movement/position = Vector2( 520, 100 )
+nodes/output/position = Vector2( 1680, 440 )
 nodes/state/node = SubResource( 25 )
-nodes/state/position = Vector2( 840, 20 )
-node_connections = [ "state", 0, "movement", "state", 1, "in_air", "output", 0, "state", "movement", 0, "Idle", "movement", 1, "Run", "in_air", 0, "Falling", "in_air", 1, "Jumping", "in_air", 2, "hanging", "in_air", 3, "RocketUp", "hanging", 0, "HangingIdle", "hanging", 1, "HangingMove" ]
+nodes/state/position = Vector2( 1220, 320 )
+node_connections = [ "state", 0, "movement", "state", 1, "in_air", "output", 0, "state", "hanging", 0, "HangingIdle", "hanging", 1, "HangingMove", "hanging", 2, "HangingIdleRocket", "hanging", 3, "HangingMoveRocket", "in_air", 0, "Jumping", "in_air", 1, "hanging", "in_air", 2, "RocketUp", "in_air", 3, "RocketJumping", "movement", 0, "Idle", "movement", 1, "Run", "movement", 2, "IdleRocket", "movement", 3, "RunRocket" ]

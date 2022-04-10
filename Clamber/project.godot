@@ -49,11 +49,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/HUD/HUD.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "NewCharacter",
-"language": "GDScript",
-"path": "res://Scenes/Character/NewCharacter.gd"
-}, {
 "base": "Node2D",
 "class": "PlayerManager",
 "language": "GDScript",
@@ -88,7 +83,6 @@ _global_script_class_icons={
 "HangCheckArea": "",
 "HangCollider": "",
 "Hud": "",
-"NewCharacter": "",
 "PlayerManager": "",
 "RocketPack": "",
 "RocketPowerBar": "",
@@ -101,6 +95,10 @@ _global_script_class_icons={
 config/name="Clamber"
 run/main_scene="res://Levels/TestLevel.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+DevTools="*res://Utils/DevTools.gd"
 
 [display]
 
@@ -147,6 +145,11 @@ rocket={
 shoot={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+restart_level={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

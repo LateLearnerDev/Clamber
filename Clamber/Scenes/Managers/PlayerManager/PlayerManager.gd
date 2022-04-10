@@ -14,12 +14,12 @@ var block_gun: BlockGun = null
 var _is_hanging := false setget set_is_hanging
 var _shoot_spawn_x: float
 
-onready var player_character := $NewCharacter as NewCharacter
-onready var hang_check_area := $NewCharacter/HangCheckArea as HangCheckArea
-onready var collectable_check_area := $NewCharacter/CollectableCheckArea as CollectableCheckArea
-onready var shoot_check_area := $NewCharacter/ShootCheckArea as ShootCheckArea
-onready var character_animation := $NewCharacter/CharacterAnimation as CharacterAnimation
-onready var shoot_pos_2d := $NewCharacter/ShootSpawnPosition as Position2D
+onready var player_character := $Character as Character
+onready var hang_check_area := $Character/HangCheckArea as HangCheckArea
+onready var collectable_check_area := $Character/CollectableCheckArea as CollectableCheckArea
+onready var shoot_check_area := $Character/ShootCheckArea as ShootCheckArea
+onready var character_animation := $Character/CharacterAnimation as CharacterAnimation
+onready var shoot_pos_2d := $Character/ShootSpawnPosition as Position2D
 onready var hud := $HUD as Hud
 
 
@@ -44,6 +44,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		character_animation.set_in_air_state()
 	
+	if player_character.get_is_jumping():
+		character_animation.jump()
+	
 	if x_input != 0:
 		character_animation.grounded_movement(x_input)
 		player_character.move_x(x_input * ACCELERATION, MAX_X_SPEED)
@@ -52,11 +55,9 @@ func _physics_process(delta: float) -> void:
 		player_character.stop_x(FRICTION, AIR_RESISTANCE)
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		character_animation.jump()
 		player_character.jump_ascend(JUMP_FORCE)
 		
 	if Input.is_action_just_released("ui_accept"):
-		character_animation.fall()
 		player_character.fall(JUMP_FORCE)
 		
 	if _is_hanging and Input.is_action_pressed("ui_accept"):
@@ -68,6 +69,7 @@ func _physics_process(delta: float) -> void:
 		player_character.use_rocket_pack(rocket_pack.THRUST_POWER, MAX_Y_SPEED)
 		rocket_pack.consume_energy()
 		hud.set_rocket_power_bar_value(rocket_pack.get_current_energy())
+		
 		
 	if Input.is_action_just_pressed("shoot") and block_gun:
 		shoot_pos_2d.position.x = _calculate_shoot_spawn_position_x()
@@ -91,6 +93,7 @@ func _equip_rocket_pack(rocket_pack_collected: RocketPack) -> void:
 	hud.set_rocket_power_bar_max_value(rocket_pack.get_current_energy())
 	hud.set_rocket_power_bar_value(rocket_pack.get_current_energy())
 	hud.show_rocket_power_bar()
+	character_animation.set_rocket_pack_eqipped()
 	
 	
 func _equip_block_gun(block_gun_collected: BlockGun) -> void:
