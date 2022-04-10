@@ -19,6 +19,7 @@ onready var camera := $Camera as PlayerCam
 onready var hang_check_area := $Character/HangCheckArea as HangCheckArea
 onready var collectable_check_area := $Character/CollectableCheckArea as CollectableCheckArea
 onready var shoot_check_area := $Character/ShootCheckArea as ShootCheckArea
+onready var hurt_check_area := $Character/HurtCheckArea as HurtCheckArea
 onready var character_animation := $Character/CharacterAnimation as CharacterAnimation
 onready var shoot_pos_2d := $Character/ShootSpawnPosition as Position2D
 onready var hud := $CanvasLayer/HUD as Hud
@@ -29,6 +30,7 @@ func _ready() -> void:
 	hang_check_area.connect("hang_collider_exited", self, "set_is_hanging", [false])
 	collectable_check_area.connect("rocket_pack_collected", self, "_equip_rocket_pack")
 	collectable_check_area.connect("block_gun_collected", self, "_equip_block_gun")
+	hurt_check_area.connect("death_area_entered", self, "_kill_player")
 	_shoot_spawn_x = _calculate_shoot_spawn_position_x()
 
 
@@ -107,3 +109,10 @@ func _increase_rocket_power_if_player_max_x_speed():
 		rocket_pack.increase_energy()
 		hud.set_rocket_power_bar_value(rocket_pack.get_current_energy())		
 		
+
+func _kill_player() -> void:
+	#player_character.die()
+	var error := get_tree().reload_current_scene()
+	if error:
+		print(error)
+	

@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Areas/CollectableCheckArea/CollectableCheckArea.gd"
 }, {
+"base": "Reference",
+"class": "DeathArea",
+"language": "GDScript",
+"path": "res://Scenes/Areas/DeathArea/DeathArea.gd"
+}, {
 "base": "Area2D",
 "class": "HangCheckArea",
 "language": "GDScript",
@@ -48,6 +53,11 @@ _global_script_classes=[ {
 "class": "Hud",
 "language": "GDScript",
 "path": "res://Scenes/HUD/HUD.gd"
+}, {
+"base": "Area2D",
+"class": "HurtCheckArea",
+"language": "GDScript",
+"path": "res://Scenes/Areas/HurtCheckArea/HurtCheckArea.gd"
 }, {
 "base": "Camera2D",
 "class": "PlayerCam",
@@ -85,9 +95,11 @@ _global_script_class_icons={
 "CharacterAnimation": "",
 "Collectable": "",
 "CollectableCheckArea": "",
+"DeathArea": "",
 "HangCheckArea": "",
 "HangCollider": "",
 "Hud": "",
+"HurtCheckArea": "",
 "PlayerCam": "",
 "PlayerManager": "",
 "RocketPack": "",
@@ -169,6 +181,7 @@ restart_level={
 2d_physics/layer_5="HangCheck"
 2d_physics/layer_6="Collectable"
 2d_physics/layer_7="CollectableCheck"
+2d_physics/layer_8="DeathArea"
 
 [physics]
 
