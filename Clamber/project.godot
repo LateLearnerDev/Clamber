@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Areas/CollectableCheckArea/CollectableCheckArea.gd"
 }, {
-"base": "Reference",
+"base": "Area2D",
 "class": "DeathArea",
 "language": "GDScript",
 "path": "res://Scenes/Areas/DeathArea/DeathArea.gd"
@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Managers/PlayerManager/PlayerManager.gd"
 }, {
+"base": "Node2D",
+"class": "Portals",
+"language": "GDScript",
+"path": "res://Scenes/Areas/Portals/Portals.gd"
+}, {
 "base": "Collectable",
 "class": "RocketPack",
 "language": "GDScript",
@@ -102,6 +107,7 @@ _global_script_class_icons={
 "HurtCheckArea": "",
 "PlayerCam": "",
 "PlayerManager": "",
+"Portals": "",
 "RocketPack": "",
 "RocketPowerBar": "",
 "ShootBlock": "",
@@ -182,6 +188,7 @@ restart_level={
 2d_physics/layer_6="Collectable"
 2d_physics/layer_7="CollectableCheck"
 2d_physics/layer_8="DeathArea"
+2d_physics/layer_9="Portal"
 
 [physics]
 
@@ -189,5 +196,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/options/use_nvidia_rect_flicker_workaround=true
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_clear_color=Color( 0.431373, 0.627451, 1, 1 )
 environment/default_environment="res://default_env.tres"
