@@ -8,10 +8,10 @@ var _velocity := Vector2.ZERO
 onready var sprite := $Sprite as Sprite
 
 
-func _physics_process(_delta: float) -> void:
-	var snap := Vector2.DOWN * 4 if !_is_jumping else Vector2.ZERO
+func _physics_process(delta: float) -> void:
+	var snap := Vector2.DOWN * 32 if !_is_jumping else Vector2.ZERO
+	_velocity.y += Globals.DEFAULT_GRAVITY * delta
 	_velocity = move_and_slide_with_snap(_velocity, snap, Vector2.UP)
-	_velocity.y += 10
 	
 
 func move_x(speed: float, max_speed: float) -> void:
@@ -49,6 +49,10 @@ func hang(direction: float) -> void:
 		_velocity.x = 0
 	else:	
 		sprite.flip_h = direction < 0
+
+
+func stop_moving() -> void:
+	_velocity = Vector2.ZERO
 
 
 func is_running_max_speed(max_x_speed: int) -> bool:

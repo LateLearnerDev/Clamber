@@ -14,7 +14,7 @@ func _ready() -> void:
 	pass 
 	
 func collected() -> void:
-	sprite.queue_free()
+	sprite.visible = false
 	set_deferred("monitorable", false)
 
 func set_current_energy(value: int) -> void:

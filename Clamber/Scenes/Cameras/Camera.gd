@@ -2,7 +2,7 @@ class_name PlayerCam
 extends Camera2D
 
 export (float) var lerp_weight = 0.04
-export (float) var max_y = -800
+export (float) var max_y = -600
 
 var initial_y: float
 var current_x: float = 0.0
@@ -12,7 +12,7 @@ func _ready() -> void:
 	initial_y = position.y
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_move_to_x(current_x)
 
 
@@ -23,7 +23,7 @@ func move(position_to_follow: Vector2):
 func set_current_x(x: float):
 	current_x += x
 	
-func _move_to_x(x: int):
+func _move_to_x(x: float):
 	position.x = lerp(position.x, x, lerp_weight * 2)
 	
 	

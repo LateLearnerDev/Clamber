@@ -1,11 +1,6 @@
 class_name RocketPowerBar
 extends Control
 
-const MINIMUM_USABLE_ROCKET_POWER := 5
-
-signal rocket_power_bar_depleted
-signal rocket_power_bar_charged
-
 export var bar_max := 200
 
 onready var texture_progress := $TextureProgress as TextureProgress

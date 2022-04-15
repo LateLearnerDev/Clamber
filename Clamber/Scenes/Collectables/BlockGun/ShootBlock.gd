@@ -12,10 +12,10 @@ const UP_TIME := 3.0
 func _ready() -> void:
 	emit_signal("fired")
 	
-func setup(transform: Transform, velocity: Vector2, speed: int) -> void:
-	self.transform = transform
-	self.velocity = velocity
-	self.speed = speed
+func setup(new_transform: Transform, new_velocity: Vector2, new_speed: int) -> void:
+	self.transform = new_transform
+	self.velocity = new_velocity
+	self.speed = new_speed
 	
 func _physics_process(delta: float) -> void:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity.normalized() * delta * speed)

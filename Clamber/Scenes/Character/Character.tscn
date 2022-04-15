@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Character/RRExport.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Character/Character.gd" type="Script" id=2]
@@ -6,6 +6,38 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.375, 10 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Celebration1"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42, 43, 42, 41 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 41 ]
+}
 
 [node name="Character" type="KinematicBody2D"]
 collision_layer = 2
@@ -15,12 +47,18 @@ script = ExtResource( 2 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 7
-vframes = 6
+vframes = 7
+frame = 41
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
 
 [node name="CharacterAnimation" parent="." instance=ExtResource( 4 )]
+anims/Celebration1 = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="AnimationTree" parent="CharacterAnimation" index="0"]
+active = false
 
 [editable path="CharacterAnimation"]

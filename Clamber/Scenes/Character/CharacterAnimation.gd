@@ -63,4 +63,8 @@ func set_rocket_pack_eqipped() -> void:
 	_grounded_movement_func = funcref(self, "_grounded_movement_rocket_pack")
 	_jump_func = funcref(self, "_jump_rocket_pack")
 	_hang_func = funcref(self, "_hang_rocket_pack")
+	
+
+func disable_tree() -> void:
+	animation_tree.queue_free()
 

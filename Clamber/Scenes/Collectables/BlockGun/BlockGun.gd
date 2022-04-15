@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 func shoot(start_pos: Transform, direction: Vector2) -> void:
 	if _blocks_fired_count < MAX_BLOCKS_FIRED:
-		var block = Block.instance() as ShootBlock
+		var block := Block.instance() as ShootBlock
 		block.connect("fired", self, "increment_blocks_fired_count")
 		block.connect("removed", self, "decrement_blocks_fired_count")
 		block.setup(start_pos, direction, POWER)
@@ -23,7 +23,7 @@ func shoot(start_pos: Transform, direction: Vector2) -> void:
 	
 
 func collected() -> void:
-	sprite.queue_free()
+	sprite.visible = false
 	set_deferred("monitorable", false)
 	
 	

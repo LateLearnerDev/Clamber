@@ -34,15 +34,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Areas/CollectableCheckArea/CollectableCheckArea.gd"
 }, {
-"base": "Node",
-"class": "Constants",
-"language": "GDScript",
-"path": "res://Utils/Constants.gd"
-}, {
 "base": "Area2D",
 "class": "DeathArea",
 "language": "GDScript",
 "path": "res://Scenes/Areas/DeathArea/DeathArea.gd"
+}, {
+"base": "Reference",
+"class": "Globals",
+"language": "GDScript",
+"path": "res://Utils/Globals.gd"
 }, {
 "base": "Area2D",
 "class": "HangCheckArea",
@@ -63,6 +63,11 @@ _global_script_classes=[ {
 "class": "HurtCheckArea",
 "language": "GDScript",
 "path": "res://Scenes/Areas/HurtCheckArea/HurtCheckArea.gd"
+}, {
+"base": "Node2D",
+"class": "LevelExitLift",
+"language": "GDScript",
+"path": "res://Scenes/Environment/LevelExit/LevelExitLift.gd"
 }, {
 "base": "Camera2D",
 "class": "PlayerCam",
@@ -89,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/HUD/RocketPowerBar/RocketPowerBar.gd"
 }, {
+"base": "CanvasLayer",
+"class": "ScreenFader",
+"language": "GDScript",
+"path": "res://Scenes/HUD/ScreenFader/ScreenFader.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "ShootBlock",
 "language": "GDScript",
@@ -98,6 +108,11 @@ _global_script_classes=[ {
 "class": "ShootCheckArea",
 "language": "GDScript",
 "path": "res://Scenes/Areas/ShootCheckArea/ShootCheckArea.gd"
+}, {
+"base": "Control",
+"class": "TimerLabel",
+"language": "GDScript",
+"path": "res://Scenes/HUD/Timer/TimerLabel.gd"
 } ]
 _global_script_class_icons={
 "BlockGun": "",
@@ -105,19 +120,22 @@ _global_script_class_icons={
 "CharacterAnimation": "",
 "Collectable": "",
 "CollectableCheckArea": "",
-"Constants": "",
 "DeathArea": "",
+"Globals": "",
 "HangCheckArea": "",
 "HangCollider": "",
 "Hud": "",
 "HurtCheckArea": "",
+"LevelExitLift": "",
 "PlayerCam": "",
 "PlayerManager": "",
 "Portals": "",
 "RocketPack": "",
 "RocketPowerBar": "",
+"ScreenFader": "",
 "ShootBlock": "",
-"ShootCheckArea": ""
+"ShootCheckArea": "",
+"TimerLabel": ""
 }
 
 [application]
@@ -130,6 +148,10 @@ config/icon="res://icon.png"
 [autoload]
 
 DevTools="*res://Utils/DevTools.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
@@ -195,6 +217,7 @@ restart_level={
 2d_physics/layer_7="CollectableCheck"
 2d_physics/layer_8="DeathArea"
 2d_physics/layer_9="Portal"
+2d_physics/layer_10="IgnoreDefault"
 
 [physics]
 

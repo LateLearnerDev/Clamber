@@ -13,6 +13,7 @@ var rocket_pack: RocketPack = null
 var block_gun: BlockGun = null
 var _is_hanging := false setget set_is_hanging
 var _shoot_spawn_x: float
+var _is_unput_locked := false
 
 onready var player_character := $Character as Character
 onready var camera := $Camera as PlayerCam
@@ -34,8 +35,11 @@ func _ready() -> void:
 	_shoot_spawn_x = _calculate_shoot_spawn_position_x()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	camera.move(player_character.position)
+	if _is_unput_locked:
+		return
+	
 	var x_input := Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if x_input > 0:
 		player_character.set_is_facing_right(true)
@@ -82,7 +86,12 @@ func _physics_process(delta: float) -> void:
 			var direction = Vector2.RIGHT if player_character.get_is_facing_right() else Vector2.LEFT
 			block_gun.shoot(shoot_pos_2d.global_transform, direction)
 		
-				
+
+func lock_player() -> void:
+	player_character.stop_moving()
+	character_animation.disable_tree()
+	_is_unput_locked = true
+
 func set_is_hanging(is_hanging: bool) -> void:
 	_is_hanging = is_hanging
 	
@@ -118,4 +127,4 @@ func _kill_player() -> void:
 	
 
 func _on_Portals_special_portal_triggered() -> void:
-	camera.set_current_x(Constants.GAME_RESOLUTION_X if player_character.get_is_facing_right() else -Constants.GAME_RESOLUTION_X)
+	camera.set_current_x(Globals.GAME_RESOLUTION_X if player_character.get_is_facing_right() else -Globals.GAME_RESOLUTION_X)
