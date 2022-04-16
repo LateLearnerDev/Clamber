@@ -11,6 +11,8 @@ const GRAVITY: float = 10.0
 
 var rocket_pack: RocketPack = null
 var block_gun: BlockGun = null
+var current_ticket: Ticket = null
+var tickets: Array
 var _is_hanging := false setget set_is_hanging
 var _shoot_spawn_x: float
 var _is_unput_locked := false
@@ -31,6 +33,7 @@ func _ready() -> void:
 	hang_check_area.connect("hang_collider_exited", self, "set_is_hanging", [false])
 	collectable_check_area.connect("rocket_pack_collected", self, "_equip_rocket_pack")
 	collectable_check_area.connect("block_gun_collected", self, "_equip_block_gun")
+	collectable_check_area.connect("ticket_collected", self, "_collect_ticket")
 	hurt_check_area.connect("death_area_entered", self, "_kill_player")
 	_shoot_spawn_x = _calculate_shoot_spawn_position_x()
 
@@ -108,6 +111,14 @@ func _equip_rocket_pack(rocket_pack_collected: RocketPack) -> void:
 	hud.show_rocket_power_bar()
 	character_animation.set_rocket_pack_eqipped()
 	
+
+func _collect_ticket(ticket_collected: Ticket) -> void:
+	current_ticket = ticket_collected
+	current_ticket.collected()
+	tickets.append(current_ticket)	
+	# TODO: ADD FUNCTIONS TO HUD TO ACCESS TICKET UI AND MANIPULATE IT
+	# i.e hud.set_ticket_count(tickets.size)
+	
 	
 func _equip_block_gun(block_gun_collected: BlockGun) -> void:
 	block_gun = block_gun_collected
@@ -128,3 +139,5 @@ func _kill_player() -> void:
 
 func _on_Portals_special_portal_triggered() -> void:
 	camera.set_current_x(Globals.GAME_RESOLUTION_X if player_character.get_is_facing_right() else -Globals.GAME_RESOLUTION_X)
+	
+	

@@ -5,10 +5,11 @@ signal time_over
 
 export var max_countdown_seconds: float = 15.0
 
-var countdown_seconds: float = max_countdown_seconds
 var countdown_active := true
 
 onready var label := $Label as Label
+onready var countdown_seconds := max_countdown_seconds
+
 
 func _ready() -> void:
 	pass # Replace with function body.

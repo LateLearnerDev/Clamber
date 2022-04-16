@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/HUD/RocketPowerBar/Meter.png" type="Texture" id=3]
 
 [node name="RocketPowerBar" type="HBoxContainer"]
-margin_left = 6.0
+margin_left = 266.0
 margin_top = 4.0
 margin_right = 331.0
 margin_bottom = 20.0
@@ -16,8 +16,8 @@ __meta__ = {
 }
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 261.0
-margin_right = 325.0
+margin_left = 1.0
+margin_right = 65.0
 margin_bottom = 16.0
 max_value = 120.0
 value = 120.0

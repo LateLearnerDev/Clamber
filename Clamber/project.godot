@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ParallaxBackground",
+"class": "Background",
+"language": "GDScript",
+"path": "res://Scenes/Background/ParallaxBackground.gd"
+}, {
 "base": "Collectable",
 "class": "BlockGun",
 "language": "GDScript",
@@ -109,12 +114,23 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Areas/ShootCheckArea/ShootCheckArea.gd"
 }, {
+"base": "Collectable",
+"class": "Ticket",
+"language": "GDScript",
+"path": "res://Scenes/Collectables/Ticket/Ticket.gd"
+}, {
+"base": "Node2D",
+"class": "TicketTimer",
+"language": "GDScript",
+"path": "res://Scenes/HUD/Timer/TicketTimer.gd"
+}, {
 "base": "Control",
 "class": "TimerLabel",
 "language": "GDScript",
 "path": "res://Scenes/HUD/Timer/TimerLabel.gd"
 } ]
 _global_script_class_icons={
+"Background": "",
 "BlockGun": "",
 "Character": "",
 "CharacterAnimation": "",
@@ -135,6 +151,8 @@ _global_script_class_icons={
 "ScreenFader": "",
 "ShootBlock": "",
 "ShootCheckArea": "",
+"Ticket": "",
+"TicketTimer": "",
 "TimerLabel": ""
 }
 

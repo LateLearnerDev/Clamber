@@ -3,8 +3,7 @@ extends Node2D
 
 signal special_portal_triggered
 
-const SPECIAL_ENTER_COUNT = 3
-
+export var special_enter_count_required: int = 3
 export var is_special_A := false
 export var is_special_B := false
 
@@ -28,7 +27,7 @@ func _on_PortalA_body_entered(body: Node) -> void:
 		return
 		
 	if is_special_A and body is Character:
-		if portal_A_entered_count == SPECIAL_ENTER_COUNT:
+		if portal_A_entered_count == special_enter_count_required:
 			_trigger_special_portal()
 			_is_special_A_accessed = true
 			return
@@ -49,7 +48,7 @@ func _on_PortalB_body_entered(body: Node) -> void:
 		return
 	
 	if is_special_B and body is Character:		
-		if portal_B_entered_count == SPECIAL_ENTER_COUNT:
+		if portal_B_entered_count == special_enter_count_required:
 			_trigger_special_portal()
 			_is_special_B_accessed = true
 			return

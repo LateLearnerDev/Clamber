@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Collectables/Ticket/Ticket.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HUD/Timer/TimerLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/HUD/Timer/TicketTimer.gd" type="Script" id=3]
+
+[node name="TicketTimer" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Timer" parent="." instance=ExtResource( 2 )]
+
+[node name="Ticket" parent="." instance=ExtResource( 1 )]
+position = Vector2( 42, 9 )
+
+[editable path="Timer"]

@@ -1,7 +1,7 @@
 class_name Hud
 extends Control
 
-onready var rocket_power_bar := $Bars/RocketPowerBar as RocketPowerBar
+onready var rocket_power_bar := $RocketBarContainer/RocketPowerBar as RocketPowerBar
 
 func _ready() -> void:
 	pass

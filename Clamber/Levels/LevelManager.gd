@@ -3,6 +3,7 @@ extends Node2D
 const PAUSE_BEFORE_FADE_OUT := 3
 
 onready var player_manager := $PlayerManager as PlayerManager
+onready var character_collectable_check_area := $PlayerManager/Character/CollectableCheckArea
 onready var character_animation := $PlayerManager/Character/CharacterAnimation as CharacterAnimation
 onready var level_exit_lift := $LeveExitLift as LevelExitLift
 onready var screen_fader := $ScreenFader as ScreenFader
@@ -23,3 +24,5 @@ func _delayed_fade_out_animation() -> void:
 	yield(timer, "timeout")
 	screen_fader.fade_out()
 	
+	
+
