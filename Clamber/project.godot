@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Environment/LevelExit/LevelExitLift.gd"
 }, {
+"base": "Node2D",
+"class": "LevelManager",
+"language": "GDScript",
+"path": "res://Levels/LevelManager.gd"
+}, {
 "base": "Camera2D",
 "class": "PlayerCam",
 "language": "GDScript",
@@ -119,6 +124,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Collectables/Ticket/Ticket.gd"
 }, {
+"base": "HBoxContainer",
+"class": "TicketCounter",
+"language": "GDScript",
+"path": "res://Scenes/HUD/TicketCounter/TicketCounter.gd"
+}, {
 "base": "Node2D",
 "class": "TicketTimer",
 "language": "GDScript",
@@ -143,6 +153,7 @@ _global_script_class_icons={
 "Hud": "",
 "HurtCheckArea": "",
 "LevelExitLift": "",
+"LevelManager": "",
 "PlayerCam": "",
 "PlayerManager": "",
 "Portals": "",
@@ -152,6 +163,7 @@ _global_script_class_icons={
 "ShootBlock": "",
 "ShootCheckArea": "",
 "Ticket": "",
+"TicketCounter": "",
 "TicketTimer": "",
 "TimerLabel": ""
 }

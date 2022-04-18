@@ -9,10 +9,7 @@ export var Block: PackedScene
 var _blocks_fired_count: int = 0
 onready var sprite := $Sprite as Sprite
 
-func _ready() -> void:
-	pass 
-	
-	
+
 func shoot(start_pos: Transform, direction: Vector2) -> void:
 	if _blocks_fired_count < MAX_BLOCKS_FIRED:
 		var block := Block.instance() as ShootBlock

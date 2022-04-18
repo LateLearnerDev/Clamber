@@ -33,7 +33,7 @@ func _ready() -> void:
 	hang_check_area.connect("hang_collider_exited", self, "set_is_hanging", [false])
 	collectable_check_area.connect("rocket_pack_collected", self, "_equip_rocket_pack")
 	collectable_check_area.connect("block_gun_collected", self, "_equip_block_gun")
-	collectable_check_area.connect("ticket_collected", self, "_collect_ticket")
+	collectable_check_area.connect("ticket_collected", self, "collect_ticket")
 	hurt_check_area.connect("death_area_entered", self, "_kill_player")
 	_shoot_spawn_x = _calculate_shoot_spawn_position_x()
 
@@ -112,12 +112,11 @@ func _equip_rocket_pack(rocket_pack_collected: RocketPack) -> void:
 	character_animation.set_rocket_pack_eqipped()
 	
 
-func _collect_ticket(ticket_collected: Ticket) -> void:
+func collect_ticket(ticket_collected: Ticket) -> void:
 	current_ticket = ticket_collected
 	current_ticket.collected()
 	tickets.append(current_ticket)	
-	# TODO: ADD FUNCTIONS TO HUD TO ACCESS TICKET UI AND MANIPULATE IT
-	# i.e hud.set_ticket_count(tickets.size)
+	hud.set_current_ticket_count(tickets.size())
 	
 	
 func _equip_block_gun(block_gun_collected: BlockGun) -> void:

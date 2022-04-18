@@ -9,10 +9,6 @@ var countdown_active := true
 
 onready var label := $Label as Label
 onready var countdown_seconds := max_countdown_seconds
-
-
-func _ready() -> void:
-	pass # Replace with function body.
 	
 	
 func _process(delta: float) -> void:
@@ -20,6 +16,10 @@ func _process(delta: float) -> void:
 		countdown_seconds -= delta
 		timer_warning_check()
 		label.text = str(stepify(countdown_seconds, 0.01))
+
+
+func is_time_remaining() -> bool:
+	return countdown_seconds > 0
 		
 
 func timer_warning_check() -> void:
@@ -31,4 +31,13 @@ func _timer_end_check() -> void:
 	if countdown_seconds <= 0:
 		countdown_seconds = 0
 		emit_signal("time_over")
-		queue_free()
+		
+		
+func remove() -> void:
+	hide()
+	
+
+func stop() -> void:
+	print('timer stopped')
+	countdown_active = false
+		

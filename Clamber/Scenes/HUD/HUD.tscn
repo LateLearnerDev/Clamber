@@ -38,8 +38,6 @@ __meta__ = {
 }
 
 [node name="TicketCounter" parent="TicketCounterContainer" instance=ExtResource( 4 )]
-anchor_top = 0.0833333
-anchor_bottom = 0.0833333
 margin_left = 0.0
 margin_right = 18.0
 margin_bottom = 12.0

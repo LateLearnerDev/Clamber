@@ -14,10 +14,6 @@ onready var tween := $Tween as Tween
 onready var player_detection := $MovingPlatform/PlayerDetection as Area2D
 var _direction := Vector2.UP
 
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 
 func _on_PlayerDetection_body_entered(body: Node) -> void:
 	var character := body as Character
