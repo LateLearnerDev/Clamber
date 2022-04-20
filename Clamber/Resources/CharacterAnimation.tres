@@ -106,4 +106,4 @@ nodes/movement/position = Vector2( 860, 200 )
 nodes/output/position = Vector2( 1560, 380 )
 nodes/state/node = SubResource( 25 )
 nodes/state/position = Vector2( 1180, 220 )
-node_connections = [ "state", 0, "movement", "state", 1, "in_air", "output", 0, "state", "in_air", 0, "Jumping", "in_air", 1, "hanging", "in_air", 2, "RocketUp", "in_air", 3, "RocketJumping", "hanging", 0, "HangingIdle", "hanging", 1, "HangingMove", "hanging", 2, "HangingIdleRocket", "hanging", 3, "HangingMoveRocket", "movement", 0, "Idle", "movement", 1, "Run", "movement", 2, "IdleRocket", "movement", 3, "RunRocket" ]
+node_connections = [ "state", 0, "movement", "state", 1, "in_air", "output", 0, "state", "movement", 0, "Idle", "movement", 1, "Run", "movement", 2, "IdleRocket", "movement", 3, "RunRocket", "hanging", 0, "HangingIdle", "hanging", 1, "HangingMove", "hanging", 2, "HangingIdleRocket", "hanging", 3, "HangingMoveRocket", "in_air", 0, "Jumping", "in_air", 1, "hanging", "in_air", 2, "RocketUp", "in_air", 3, "RocketJumping" ]
