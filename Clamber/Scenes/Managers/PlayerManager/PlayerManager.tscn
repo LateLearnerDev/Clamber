@@ -30,6 +30,10 @@ scale = Vector2( 0.828967, 0.84 )
 collision_layer = 0
 collision_mask = 0
 
+[node name="CollisionShape2D" parent="Character/ShootCheckArea" index="0"]
+position = Vector2( 0, -3.33333 )
+scale = Vector2( 1, 1 )
+
 [node name="ShootSpawnPosition" type="Position2D" parent="Character"]
 position = Vector2( 16.0478, -11 )
 
@@ -47,3 +51,4 @@ current = true
 
 [editable path="Character"]
 [editable path="Character/CharacterAnimation"]
+[editable path="Character/ShootCheckArea"]

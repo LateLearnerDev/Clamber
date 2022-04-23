@@ -80,8 +80,7 @@ func _physics_process(_delta: float) -> void:
 		player_character.use_rocket_pack(rocket_pack.THRUST_POWER, MAX_Y_SPEED)
 		rocket_pack.consume_energy()
 		hud.set_rocket_power_bar_value(rocket_pack.get_current_energy())
-		
-		
+				
 	if Input.is_action_just_pressed("shoot") and block_gun:
 		shoot_pos_2d.position.x = _calculate_shoot_spawn_position_x()
 		shoot_check_area.position.x = shoot_pos_2d.position.x

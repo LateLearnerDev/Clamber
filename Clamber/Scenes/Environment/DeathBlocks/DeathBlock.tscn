@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Environment/DeathBlocks/DeathBlock.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Areas/DeathArea/DeathArea.tscn" type="PackedScene" id=2]
@@ -27,13 +27,24 @@ animations = [ {
 "speed": 15.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 8 )
+
 [node name="DeathBlock" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
 frames = SubResource( 6 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="DeathArea" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -8 )
+shape = SubResource( 7 )

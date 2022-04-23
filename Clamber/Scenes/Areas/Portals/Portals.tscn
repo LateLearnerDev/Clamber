@@ -34,7 +34,6 @@ scale = Vector2( 0.04, 2.2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalA/SpecialExitA"]
 position = Vector2( 7.49999, 0 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="PortalB" type="Area2D" parent="."]
