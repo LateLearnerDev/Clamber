@@ -143,6 +143,11 @@ _global_script_classes=[ {
 "class": "TimerLabel",
 "language": "GDScript",
 "path": "res://Scenes/HUD/Timer/TimerLabel.gd"
+}, {
+"base": "Area2D",
+"class": "TransitionX",
+"language": "GDScript",
+"path": "res://Scenes/Areas/TransitionX/TransitionX.gd"
 } ]
 _global_script_class_icons={
 "Background": "",
@@ -171,7 +176,8 @@ _global_script_class_icons={
 "Ticket": "",
 "TicketCounter": "",
 "TicketTimer": "",
-"TimerLabel": ""
+"TimerLabel": "",
+"TransitionX": ""
 }
 
 [application]

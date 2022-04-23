@@ -17,7 +17,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func move(position_to_follow: Vector2):
-	position.y = clamp(lerp(position - Vector2(0,10.5), position_to_follow, lerp_weight).y, initial_y+max_y, -400)
+	position.y = clamp(lerp(position - Vector2(0,10.5), position_to_follow, lerp_weight).y, initial_y+max_y, -375)
 	
 
 func set_current_x(x: float):

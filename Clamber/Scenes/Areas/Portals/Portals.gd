@@ -12,10 +12,6 @@ var portal_B_entered_count := 0
 var _is_special_A_accessed := false
 var _is_special_B_accessed := false
 
-onready var portal_A := $PortalA as Area2D
-onready var portal_A_Exit := $PortalA/SpecialExitA as Area2D
-onready var portal_B := $PortalB as Area2D
-onready var portal_B_Exit := $PortalA/SpecialExitA as Area2D
 onready var portal_A_spawn_pos := $PortalA/PortalASpawnPos as Position2D
 onready var portal_B_spawn_pos := $PortalB/PortalBSpawnPos as Position2D
 

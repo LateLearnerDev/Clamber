@@ -134,8 +134,9 @@ func _kill_player() -> void:
 	if error:
 		print(error)
 	
-
+# Manually attached to signal
 func _on_Portals_special_portal_triggered() -> void:
 	camera.set_current_x(Globals.GAME_RESOLUTION_X if player_character.get_is_facing_right() else -Globals.GAME_RESOLUTION_X)
 	
-	
+func _on_TransitionX_transition_x_triggered(is_transition_right: bool) -> void:
+	camera.set_current_x(Globals.GAME_RESOLUTION_X if is_transition_right else -Globals.GAME_RESOLUTION_X)
