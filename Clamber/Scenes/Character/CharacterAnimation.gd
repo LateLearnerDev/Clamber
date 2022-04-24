@@ -66,5 +66,5 @@ func set_rocket_pack_eqipped() -> void:
 	
 
 func disable_tree() -> void:
-	animation_tree.queue_free()
+	animation_tree.active = false
 

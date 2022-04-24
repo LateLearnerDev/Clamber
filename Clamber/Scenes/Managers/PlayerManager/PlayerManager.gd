@@ -24,6 +24,8 @@ onready var collectable_check_area := $Character/CollectableCheckArea as Collect
 onready var shoot_check_area := $Character/ShootCheckArea as ShootCheckArea
 onready var hurt_check_area := $Character/HurtCheckArea as HurtCheckArea
 onready var character_animation := $Character/CharacterAnimation as CharacterAnimation
+onready var character_sprite := $Character/Sprite as Sprite
+onready var character_death_particles := $Character/CharacterDeathParticles as Particles2D
 onready var shoot_pos_2d := $Character/ShootSpawnPosition as Position2D
 onready var hud := $CanvasLayer/HUD as Hud
 
@@ -130,9 +132,12 @@ func _increase_rocket_power_if_player_max_x_speed():
 
 func _kill_player() -> void:
 	#player_character.die()
-	var error := get_tree().reload_current_scene()
-	if error:
-		print(error)
+	#var error := get_tree().reload_current_scene()
+	lock_player()
+	character_sprite.visible = false
+	character_death_particles.emitting = true	
+#	if error:
+#		print(error)
 	
 # Manually attached to signal
 func _on_Portals_special_portal_triggered() -> void:

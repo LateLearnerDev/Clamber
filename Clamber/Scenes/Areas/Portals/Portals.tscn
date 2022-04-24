@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Areas/Portals/Portals.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Particle Effects/Portals/PortalParticleEffect.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 0.514249, 10 )
@@ -8,11 +9,35 @@ extents = Vector2( 0.514249, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 17.5, 10 )
 
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 100, -10, 0 )
+initial_velocity = 45.0
+orbit_velocity = 1.0
+orbit_velocity_random = 0.0
+scale = 1.5
+color = Color( 0.827451, 0.827451, 0.552941, 1 )
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 0.51164, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 0.75, 22 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 100, -10, 0 )
+initial_velocity = 45.0
+orbit_velocity = 1.0
+orbit_velocity_random = 0.0
+scale = 1.5
+color = Color( 0.827451, 0.827451, 0.552941, 1 )
 
 [node name="Portals" type="Node2D"]
 script = ExtResource( 1 )
@@ -36,6 +61,10 @@ scale = Vector2( 0.04, 2.2 )
 position = Vector2( 7.49999, 0 )
 shape = SubResource( 3 )
 
+[node name="PortalParticleEffect" parent="PortalA" instance=ExtResource( 2 )]
+position = Vector2( 13, 19 )
+process_material = SubResource( 5 )
+
 [node name="PortalB" type="Area2D" parent="."]
 position = Vector2( 22, -22 )
 
@@ -54,6 +83,10 @@ position = Vector2( -27, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalB/SpecialExitB"]
 position = Vector2( -0.25, 0 )
 shape = SubResource( 4 )
+
+[node name="PortalParticleEffect" parent="PortalB" instance=ExtResource( 2 )]
+position = Vector2( -24, 18 )
+process_material = SubResource( 6 )
 
 [connection signal="body_entered" from="PortalA" to="." method="_on_PortalA_body_entered"]
 [connection signal="body_entered" from="PortalA/SpecialExitA" to="." method="_on_SpecialExitA_body_entered"]
