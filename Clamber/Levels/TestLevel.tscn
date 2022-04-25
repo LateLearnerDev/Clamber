@@ -83,43 +83,37 @@ position = Vector2( 42, 172 )
 position = Vector2( 280, 304 )
 
 [node name="AnimatedSprite" parent="DeathBlock" index="0"]
-frame = 0
+frame = 2
 
 [node name="DeathBlock2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 280, 320 )
 
 [node name="AnimatedSprite" parent="DeathBlock2" index="0"]
-frame = 0
+frame = 2
 
 [node name="DeathBlock3" parent="." instance=ExtResource( 17 )]
 position = Vector2( 280, 368 )
 
 [node name="AnimatedSprite" parent="DeathBlock3" index="0"]
-frame = 1
+frame = 3
 
 [node name="DeathBlock4" parent="." instance=ExtResource( 17 )]
 position = Vector2( 280, 384 )
 
 [node name="AnimatedSprite" parent="DeathBlock4" index="0"]
-frame = 1
+frame = 3
 
 [node name="DeathBlock7" parent="." instance=ExtResource( 17 )]
 position = Vector2( 248, 128 )
 
 [node name="AnimatedSprite" parent="DeathBlock7" index="0"]
-frame = 1
+frame = 3
 
 [node name="DeathBlock9" parent="." instance=ExtResource( 17 )]
 position = Vector2( 56, 192 )
 
-[node name="AnimatedSprite" parent="DeathBlock9" index="0"]
-frame = 3
-
 [node name="DeathBlock10" parent="." instance=ExtResource( 17 )]
 position = Vector2( 72, 192 )
-
-[node name="AnimatedSprite" parent="DeathBlock10" index="0"]
-frame = 3
 
 [node name="BounceBackTile" parent="." instance=ExtResource( 18 )]
 position = Vector2( 24, 240 )

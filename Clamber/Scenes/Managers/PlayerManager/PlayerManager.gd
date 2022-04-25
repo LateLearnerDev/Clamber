@@ -41,6 +41,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	# This is a crap way of making sure the player hangs, it is immediately overwritten when hanging
+	player_character.set_is_hanging(false)
 	camera.move(player_character.position)
 	if _is_unput_locked:
 		return
@@ -73,9 +75,10 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		player_character.fall(JUMP_FORCE)
 		
-	if _is_hanging and Input.is_action_pressed("ui_accept"):
+	if _is_hanging and Input.is_action_pressed("ui_accept"):	
 		character_animation.hang(x_input)
-		player_character.hang(x_input)
+		player_character.hang(x_input)		
+		player_character.set_is_hanging(true)
 		
 	if Input.is_action_pressed("rocket") and rocket_pack and !rocket_pack.is_empty():
 		character_animation.rocket()

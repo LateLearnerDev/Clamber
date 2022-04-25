@@ -3,14 +3,15 @@ extends KinematicBody2D
 
 export var is_facing_right := true
 
+var _is_hanging := false
 var _is_jumping := false
 var _velocity := Vector2.ZERO
 onready var sprite := $Sprite as Sprite
 
 
 func _physics_process(delta: float) -> void:
-	var snap := Vector2.DOWN * 32 if !_is_jumping else Vector2.ZERO
-	_velocity.y += Globals.DEFAULT_GRAVITY * delta
+	var snap := Vector2.DOWN * 8 if !_is_jumping else Vector2.ZERO
+	_velocity.y += Globals.DEFAULT_GRAVITY if !_is_hanging else 0
 	_velocity = move_and_slide_with_snap(_velocity, snap, Vector2.UP)
 	
 
@@ -49,6 +50,9 @@ func hang(direction: float) -> void:
 		_velocity.x = 0
 	else:	
 		sprite.flip_h = direction < 0
+		
+func set_is_hanging(is_hanging: bool) -> void:
+	_is_hanging = is_hanging
 
 
 func stop_moving() -> void:
