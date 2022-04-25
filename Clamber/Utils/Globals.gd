@@ -5,3 +5,5 @@ const GAME_RESOLUTION_X := 336
 const DEFAULT_GRAVITY := 600
 
 const RED := "#b14156"
+const GREEN := "#48d150"
+const DARK_YELLOW := "#d3d38d"
