@@ -4,13 +4,13 @@
 [ext_resource path="res://Scenes/Environment/HangBars/HangCollider.gd" type="Script" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 15.7804, 7, 0, 7, 0, 6.44486, 15.854, 6.44486 )
+points = PoolVector2Array( 15.7804, 7, 0, 7, 0, 6.55088, 15.854, 6.44486 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 15.9181, 7, -0.146004, 6.93165, -0.254177, 6.49895, 15.9181, 6.44486 )
+points = PoolVector2Array( 16.0263, 7, -0.362354, 6.9295, -0.416443, 6.55088, 15.9722, 6.55088 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 16, 7, -0.0191689, 7, -0.135998, 6.44486, 15.8199, 6.39077 )
+points = PoolVector2Array( 16, 7, -0.0191689, 7, -0.135998, 6.44486, 15.9822, 6.44271 )
 
 [sub_resource type="TileSet" id=1]
 0/name = "HangingFrames.png 0"

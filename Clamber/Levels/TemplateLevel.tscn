@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Managers/PlayerManager/PlayerManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TileSets/Grass.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Environment/HangBars/HangCollider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Collectables/BlockGun/BlockGun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Areas/DeathArea/DeathArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Areas/Portals/Portals.tscn" type="PackedScene" id=7]
@@ -14,7 +13,7 @@
 [ext_resource path="res://Scenes/Background/ParallaxBackground.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Areas/TransitionX/TransitionX.tscn" type="PackedScene" id=19]
 
-[node name="TestLevel2" type="Node2D"]
+[node name="TemplateLevel" type="Node2D"]
 position = Vector2( 0, -1 )
 script = ExtResource( 10 )
 
@@ -53,9 +52,6 @@ position = Vector2( 3, 0 )
 
 [node name="PortalB" parent="Portals" index="1"]
 position = Vector2( 352, -137 )
-
-[node name="HangCollider" parent="." instance=ExtResource( 4 )]
-position = Vector2( 42, 172 )
 
 [node name="TransitionX" parent="." instance=ExtResource( 19 )]
 position = Vector2( -9, 159 )

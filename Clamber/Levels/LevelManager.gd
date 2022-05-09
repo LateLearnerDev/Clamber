@@ -6,7 +6,7 @@ const PAUSE_BEFORE_FADE_OUT := 3
 var level_complete: bool
 
 onready var player_manager := $PlayerManager as PlayerManager
-onready var character_collectable_check_area := $PlayerManager/Character/CollectableCheckArea
+onready var character_collectable_check_area := $PlayerManager/Character/CollectableCheckArea as CollectableCheckArea
 onready var character_animation := $PlayerManager/Character/CharacterAnimation as CharacterAnimation
 onready var level_exit_lift := $LeveExitLift as LevelExitLift
 onready var screen_fader := $ScreenFader as ScreenFader
@@ -16,7 +16,8 @@ onready var fade_out_timer := $FadeOutTimer as Timer
 
 func _ready() -> void:
 	level_complete = false
-	level_exit_lift.connect("level_exit_reached", self, "_level_complete")
+	if level_exit_lift:
+		level_exit_lift.connect("level_exit_reached", self, "_level_complete")
 	
 
 func _level_complete() -> void:

@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Environment/DeathBlocks/DeathBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Managers/PlayerManager/PlayerManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TileSets/Grass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Environment/LevelExit/LevelExitLift.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HUD/Timer/TicketTimer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Buttons/NewContinueGameButton.gd" type="Script" id=6]
+[ext_resource path="res://UI/MainTheme.tres" type="Theme" id=7]
+[ext_resource path="res://Textures/NightSky.png" type="Texture" id=8]
+[ext_resource path="res://Levels/TestLevel.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/LevelManager.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/HUD/ScreenFader/ScreenFader.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Background/ParallaxBackground.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Theme" id=1]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2( 0, -1 )
+script = ExtResource( 10 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 13 )]
+texture = ExtResource( 8 )
+
+[node name="Grass" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 458750, 0, 0, 458751, 0, 1, 393216, 0, 1, 393217, 0, 1, 393218, 0, 2, 524286, 0, 65536, 524287, 0, 65537, 458752, 0, 65537, 458753, 0, 65537, 458754, 0, 131077, 458755, 0, 1, 458756, 0, 2, 589822, 0, 65536, 589823, 0, 65537, 524288, 0, 65537, 524289, 0, 65537, 524290, 0, 65537, 524291, 0, 65537, 524292, 0, 65538, 524296, 0, 0, 524297, 0, 1, 524298, 0, 2, 655358, 0, 131072, 655359, 0, 131073, 589824, 0, 131073, 589825, 0, 131073, 589826, 0, 131073, 589827, 0, 131073, 589828, 0, 131074, 589831, 0, 0, 589832, 0, 131078, 589833, 0, 65537, 589834, 0, 65538, 655367, 0, 131072, 655368, 0, 131073, 655369, 0, 131073, 655370, 0, 196613, 655371, 0, 196610 )
+
+[node name="DeathBlock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 120, 144 )
+
+[node name="PlayerManager" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 375 )
+
+[node name="Character" parent="PlayerManager" index="0"]
+position = Vector2( 60, -264.333 )
+
+[node name="Camera" parent="PlayerManager" index="1"]
+position = Vector2( 51, 41 )
+scale = Vector2( 2, 2 )
+offset = Vector2( 35, 25 )
+zoom = Vector2( 0.3, 0.3 )
+max_y = 0.0
+
+[node name="CanvasLayer" parent="PlayerManager" index="2"]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+
+[node name="ScreenFader" parent="." instance=ExtResource( 11 )]
+
+[node name="Sprite" parent="ScreenFader" index="0"]
+visible = false
+
+[node name="LevelExitLift" parent="." instance=ExtResource( 4 )]
+
+[node name="TicketTimer" parent="." instance=ExtResource( 5 )]
+
+[node name="FadeOutTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuControl" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/MenuControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 159.0
+margin_top = 66.0
+margin_right = -35.0
+margin_bottom = -207.0
+theme = ExtResource( 7 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewContinueGameButton" type="Button" parent="CanvasLayer/MenuControl/Menu"]
+margin_right = 142.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 1 )
+text = "New Game"
+script = ExtResource( 6 )
+level_path = ExtResource( 9 )
+
+[node name="Tower" type="Button" parent="CanvasLayer/MenuControl/Menu"]
+margin_top = 54.0
+margin_right = 142.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Tower"
+
+[node name="Options" type="Button" parent="CanvasLayer/MenuControl/Menu"]
+margin_top = 108.0
+margin_right = 142.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Options"
+
+[connection signal="pressed" from="CanvasLayer/MenuControl/Menu/NewContinueGameButton" to="CanvasLayer/MenuControl/Menu/NewContinueGameButton" method="_on_NewContinueGameButton_pressed"]
+
+[editable path="PlayerManager"]
+[editable path="PlayerManager/Character"]
+[editable path="PlayerManager/Character/CharacterAnimation"]
+[editable path="PlayerManager/Character/ShootCheckArea"]
+[editable path="ScreenFader"]
