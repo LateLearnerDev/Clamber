@@ -15,7 +15,11 @@ script = ExtResource( 2 )
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 
+[node name="CharacterAnimation" parent="Character" index="2"]
+autoplay = "CharacterIdle"
+
 [node name="AnimationTree" parent="Character/CharacterAnimation" index="0"]
+active = true
 parameters/in_air/current = 3
 
 [node name="HangCheckArea" parent="Character" instance=ExtResource( 3 )]

@@ -4,4 +4,5 @@
 
 [node name="Camera" type="Camera2D"]
 anchor_mode = 0
+smoothing_enabled = true
 script = ExtResource( 1 )

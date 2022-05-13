@@ -32,6 +32,6 @@ script = ExtResource( 1 )
 tree_root = ExtResource( 13 )
 anim_player = NodePath("..")
 parameters/hanging/current = 0
-parameters/in_air/current = 1
+parameters/in_air/current = 0
 parameters/movement/current = 0
 parameters/state/current = 0
