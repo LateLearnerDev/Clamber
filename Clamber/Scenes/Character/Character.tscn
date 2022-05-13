@@ -58,7 +58,4 @@ shape = SubResource( 1 )
 anims/Celebration1 = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
-[node name="AnimationTree" parent="CharacterAnimation" index="0"]
-active = false
-
 [editable path="CharacterAnimation"]

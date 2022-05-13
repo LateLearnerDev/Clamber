@@ -148,6 +148,11 @@ _global_script_classes=[ {
 "class": "TransitionX",
 "language": "GDScript",
 "path": "res://Scenes/Areas/TransitionX/TransitionX.gd"
+}, {
+"base": "Node2D",
+"class": "UpDownBlock",
+"language": "GDScript",
+"path": "res://Scenes/Environment/UpDownBlock/UpDownBlock.gd"
 } ]
 _global_script_class_icons={
 "Background": "",
@@ -177,7 +182,8 @@ _global_script_class_icons={
 "TicketCounter": "",
 "TicketTimer": "",
 "TimerLabel": "",
-"TransitionX": ""
+"TransitionX": "",
+"UpDownBlock": ""
 }
 
 [application]

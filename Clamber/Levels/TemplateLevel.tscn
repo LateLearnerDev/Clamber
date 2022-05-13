@@ -61,7 +61,7 @@ scale = Vector2( 1, 1.48 )
 position = Vector2( 0, 375 )
 
 [node name="Character" parent="PlayerManager" index="0"]
-position = Vector2( 57, -223 )
+position = Vector2( 301, -215 )
 
 [node name="Camera" parent="PlayerManager" index="1"]
 max_y = -285.0
