@@ -9,6 +9,7 @@ enum Hanging {HANG_IDLE, HANG_MOVE, HANG_IDLE_ROCKET, HANG_MOVE_ROCKET}
 var _grounded_movement_func: FuncRef = funcref(self, "_grounded_movement")
 var _jump_func: FuncRef = funcref(self, "_jump")
 var _hang_func: FuncRef = funcref(self, "_hang")
+var _current_state = null
 
 onready var animation_tree := $AnimationTree as AnimationTree
 
@@ -18,10 +19,14 @@ func _ready() -> void:
 	
 
 func set_ground_state() -> void:
-	animation_tree.set("parameters/state/current", State.GROUND)
+	if _current_state != State.GROUND:
+		_current_state = State.GROUND
+		animation_tree.set("parameters/state/current", State.GROUND)
 
 func set_in_air_state() -> void:
-	animation_tree.set("parameters/state/current", State.AIR)
+	if _current_state != State.AIR:
+		animation_tree.set("parameters/state/current", State.AIR)
+		_current_state = State.AIR
 
 
 func grounded_movement(moving_x: float) -> void:
@@ -29,6 +34,7 @@ func grounded_movement(moving_x: float) -> void:
 
 func _grounded_movement(moving_x: float) -> void:
 	animation_tree.set("parameters/movement/current", moving_x != GroundMovement.IDLE)
+	
 
 func _grounded_movement_rocket_pack(moving_x: float) -> void:
 	animation_tree.set("parameters/movement/current", GroundMovement.RUN_ROCKET if moving_x != GroundMovement.IDLE else GroundMovement.IDLE_ROCKET)
@@ -57,6 +63,7 @@ func _hang_rocket_pack(moving_x: float) -> void:
 	
 	
 func rocket() -> void:
+	print("rocket set")
 	animation_tree.set("parameters/in_air/current", InAir.ROCKET)
 
 func set_rocket_pack_eqipped() -> void:

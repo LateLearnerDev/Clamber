@@ -67,7 +67,10 @@ position = Vector2( 304, 201 )
 position = Vector2( 0, 375 )
 
 [node name="Character" parent="PlayerManager" index="0"]
-position = Vector2( 65, -3 )
+position = Vector2( 280, -17 )
+
+[node name="CharacterAnimation" parent="PlayerManager/Character" index="2"]
+autoplay = ""
 
 [node name="AnimationTree" parent="PlayerManager/Character/CharacterAnimation" index="0"]
 parameters/in_air/current = 0
@@ -79,7 +82,7 @@ max_y = -285.0
 [editable path="TicketTimer/Timer"]
 [editable path="TicketTimer/Ticket"]
 [editable path="ScreenFader"]
+[editable path="UpDownBlock"]
 [editable path="PlayerManager"]
 [editable path="PlayerManager/Character"]
-[editable path="PlayerManager/Character/CharacterAnimation"]
 [editable path="PlayerManager/Character/ShootCheckArea"]

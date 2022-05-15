@@ -63,6 +63,5 @@ visible = false
 [editable path="TicketTimer/Ticket"]
 [editable path="PlayerManager"]
 [editable path="PlayerManager/Character"]
-[editable path="PlayerManager/Character/CharacterAnimation"]
 [editable path="PlayerManager/Character/ShootCheckArea"]
 [editable path="ScreenFader"]

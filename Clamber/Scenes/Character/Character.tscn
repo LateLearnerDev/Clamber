@@ -1,8 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Character/RRExport.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Character/Character.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Character/CharacterAnimation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Resources/Animations/CharacterHangRocketMove.tres" type="Animation" id=3]
+[ext_resource path="res://Resources/Animations/CharacterRocketJump.tres" type="Animation" id=4]
+[ext_resource path="res://Resources/Animations/CharacterHangIdle.tres" type="Animation" id=5]
+[ext_resource path="res://Resources/Animations/CharacterJump.tres" type="Animation" id=6]
+[ext_resource path="res://Resources/Animations/CharacterHangMove.tres" type="Animation" id=7]
+[ext_resource path="res://Resources/Animations/CharacterHangRocketIdle.tres" type="Animation" id=8]
+[ext_resource path="res://Resources/Animations/CharacterRocketRun.tres" type="Animation" id=9]
+[ext_resource path="res://Resources/Animations/CharacterRocketIdle.tres" type="Animation" id=10]
+[ext_resource path="res://Resources/Animations/CharacterRun.tres" type="Animation" id=11]
+[ext_resource path="res://Resources/Animations/CharacterIdle.tres" type="Animation" id=12]
+[ext_resource path="res://Resources/Animations/CharacterRocketUp.tres" type="Animation" id=13]
+[ext_resource path="res://Scenes/Character/CharacterAnimation.gd" type="Script" id=14]
+[ext_resource path="res://Resources/CharacterAnimation.tres" type="AnimationNodeBlendTree" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.375, 10 )
@@ -24,21 +36,6 @@ tracks/0/keys = {
 "values": [ 40, 41, 42, 43, 42, 41 ]
 }
 
-[sub_resource type="Animation" id=3]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 41 ]
-}
-
 [node name="Character" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
@@ -48,14 +45,31 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 7
 vframes = 7
-frame = 41
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
 
-[node name="CharacterAnimation" parent="." instance=ExtResource( 4 )]
+[node name="CharacterAnimation" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/Celebration1 = SubResource( 2 )
-anims/RESET = SubResource( 3 )
+anims/CharacterHangIdle = ExtResource( 5 )
+anims/CharacterHangMove = ExtResource( 7 )
+anims/CharacterHangRocketIdle = ExtResource( 8 )
+anims/CharacterHangRocketMove = ExtResource( 3 )
+anims/CharacterIdle = ExtResource( 12 )
+anims/CharacterJump = ExtResource( 6 )
+anims/CharacterRocketIdle = ExtResource( 10 )
+anims/CharacterRocketJump = ExtResource( 4 )
+anims/CharacterRocketRun = ExtResource( 9 )
+anims/CharacterRocketUp = ExtResource( 13 )
+anims/CharacterRun = ExtResource( 11 )
+script = ExtResource( 14 )
 
-[editable path="CharacterAnimation"]
+[node name="AnimationTree" type="AnimationTree" parent="CharacterAnimation"]
+tree_root = ExtResource( 15 )
+anim_player = NodePath("..")
+parameters/hanging/current = 0
+parameters/in_air/current = 0
+parameters/movement/current = 0
+parameters/state/current = 0
